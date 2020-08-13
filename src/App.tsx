@@ -20,9 +20,9 @@ function App() {
             <div>
                 <nav>
                     <ul>
-                        {routes.map(route => {
+                        {routes.map((route, index) => {
                             return (
-                                <li>
+                                <li key={index}>
                                     <Link to={route.path}>{route.name}</Link>
                                 </li>
                             );
