@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Home from './Modules/Home/Home';
+import UseRef from './Modules/UseRef/UseRef';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const routes = [
+        {
+            path: '/home',
+            name: 'Home',
+        },
+        {
+            path: '/use-ref',
+            name: 'UseRef Recat Hooks',
+        },
+    ];
+
+    return (
+        <Router>
+            <div>
+                <nav>
+                    <ul>
+                        {routes.map(route => {
+                            return (
+                                <li>
+                                    <Link to={route.path}>{route.name}</Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </nav>
+
+                <Switch>
+                    <Route exact path="/home" component={Home} />
+                    <Route exact path="/use-ref" component={UseRef} />
+                </Switch>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
