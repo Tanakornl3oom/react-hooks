@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 function UseEffect() {
     return (
@@ -8,6 +8,7 @@ function UseEffect() {
                 useEffect เป็นเหมือนการนำ componentDidMount, componentDidUpdate และ
                 componentWillUnmount มารวมกันเ
             </p>
+            <p>Syntax : {`useEffect ( func, [some val])`}</p>
             <p>
                 {`useEffect (() => { //do something return ()=>{ //unmount clear state} }, // state ที่เราสนใจจะ subscribe [dependency])`}
             </p>
